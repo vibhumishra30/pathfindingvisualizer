@@ -150,8 +150,6 @@
     border: 2px solid black;
 }
 
-/* Responsiveness */
-
 @media(max-width:780px)
 {
     body

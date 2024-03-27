@@ -4,7 +4,6 @@
     height: 22px;
 
     border: 1px solid rgb(175, 216, 248);
-    /* Using inline block as we are storing every row in a separate div */
 }
 
 .node-start

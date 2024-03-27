@@ -87,7 +87,6 @@ export const showPopUp = () => {
   pathfindingVisualizer.style.filter = " blur(4px)";
 };
 
-///////////////////////////////////////////////////////////////////
 function setCookie(name, value) {
   var cookie = name + "=" + escape(value) + ";";
   document.cookie = cookie;

@@ -38,7 +38,7 @@ export default class Node extends Component {
         onMouseDown={() => onMouseDown(row, col)}
         onMouseEnter={() => onMouseEnter(row, col)}
         onMouseUp={() => onMouseUp()}
-      ></td> // It is used to create the grid.
+      ></td> 
     );
   }
 }

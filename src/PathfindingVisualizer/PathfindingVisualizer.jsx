@@ -4,8 +4,6 @@ import {showPopUp} from "./Tutorial/Tutorial.jsx";
 import { dijkstra, getNodesInShortestPathOrder } from "../algorithms/dijkstra";
 import "./PathfindingVisualizer.css";
 
-// Defining initial state of start and finish.
-
 let row_max_length = 20;
 let col_max_length = 40;
 
@@ -27,13 +25,11 @@ export default class PathfindingVisualizer extends Component {
     };
   }
 
-  // Creating grid
   componentDidMount() {
     const grid = getInitialGrid();
     this.setState({ grid });
   }
 
-  // On pressing the mouse down
   handleMouseDown(row, col) {
     if (this.state.topMessage !== "Dijkstra Algorithm") return;
 
@@ -53,7 +49,6 @@ export default class PathfindingVisualizer extends Component {
     this.setState({ grid: newGrid, mouseIsPressed: true });
   }
 
-  // On entering the new node element.
   handleMouseEnter(row, col) {
     if (this.state.topMessage !== "Dijkstra Algorithm") return;
     if (!this.state.mouseIsPressed) return;
@@ -74,7 +69,6 @@ export default class PathfindingVisualizer extends Component {
     this.setState({ grid: newGrid, mouseIsPressed: true });
   }
 
-  // When we release the mouse
   handleMouseUp() {
     if (this.state.topMessage !== "Dijkstra Algorithm") return;
     this.setState({ mouseIsPressed: false });
@@ -92,7 +86,6 @@ export default class PathfindingVisualizer extends Component {
 
   animateDijkstra(visitedNodesInOrder, nodesInShortestPathOrder) {
     for (let i = 1; i <= visitedNodesInOrder.length; i++) {
-      // When we reach the last element in visitedNodesInOrder.
       if (i === visitedNodesInOrder.length) {
         setTimeout(() => {
           this.setState({ topMessage: "Shortest Path" });
@@ -140,8 +133,7 @@ export default class PathfindingVisualizer extends Component {
   };
 
   pointChangeHandler = () => {
-    if (this.notCorrect()) return; //To check if the provided value is suitable or not.
-
+    if (this.notCorrect()) return; 
     document.getElementById(
       `node-${START_NODE_ROW}-${START_NODE_COL}`
     ).className = "node";
@@ -321,7 +313,7 @@ export default class PathfindingVisualizer extends Component {
             <h2>{topMessage}</h2>
           </div>
 
-          {/* Show the header */}
+          {}
           {textBox}
         </div>
 
@@ -333,7 +325,7 @@ export default class PathfindingVisualizer extends Component {
                   return (
                     <tr key={rowIndex}>
                       {row.map((node, nodeIndex) => {
-                        const { isStart, isFinish, isWall, isWeight } = node; //Extracting from the node
+                        const { isStart, isFinish, isWall, isWeight } = node; 
                         return (
                           <Node
                             row={rowIndex}
@@ -397,7 +389,7 @@ const getNewGridWithWallToggled = (grid, row, col) => {
   const newGrid = [...grid];
   const node = newGrid[row][col];
   const newNode = {
-    ...node, // copying other properties of the node
+    ...node, 
     isWall: !node.isWall,
   };
   newGrid[row][col] = newNode;
@@ -408,7 +400,7 @@ const getNewGridWithWeightToggled = (grid, row, col, weight) => {
   const newGrid = [...grid];
   const node = newGrid[row][col];
   const newNode = {
-    ...node, // copying other properties of the node
+    ...node,
     isWeight: !node.isWeight,
     weight: parseInt(weight),
   };
